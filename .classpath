@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="CalcularIMC/src"/>
+	<classpathentry excluding="CreadoDNI/" kind="src" path="CreadorDNI/src/main/java"/>
+	<classpathentry kind="src" path="CreadorDNI/src/main/java/CreadoDNI"/>
+	<classpathentry kind="src" path="CreadorDNI/src/test/java"/>
+	<classpathentry kind="src" path="VEHICULO/src"/>
+	<classpathentry kind="output" path="CalcularIMC/bin"/>
+</classpath>
