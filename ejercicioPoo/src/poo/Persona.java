@@ -6,9 +6,11 @@ abstract class Persona {
         nombre = nom;
     }
 
-    public String dameNombre() {
+    public String getNombre() {
         return nombre;
     }
+
+    public abstract String dameDescripcion();
 
     private String nombre;
 
