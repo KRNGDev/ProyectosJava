@@ -2,6 +2,7 @@ package poo;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.Toolkit;
 import java.util.Date;
 
 public class PruebaTemporizador {
@@ -23,6 +24,7 @@ class DameLaHora implements ActionListener {
 
         Date ahora = new Date(0);
         System.out.println("Te pomgp la hora cada 5 segndos _ " + ahora);
+        Toolkit.getDefaultToolkit().beep();
 
     }
 
