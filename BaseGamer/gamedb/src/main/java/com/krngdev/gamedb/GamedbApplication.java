@@ -1,4 +1,4 @@
-package com.krngdev.gamedb.gamedb;
+package com.krngdev.gamedb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

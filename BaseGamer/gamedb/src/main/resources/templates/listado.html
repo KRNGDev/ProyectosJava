@@ -32,69 +32,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
            
 
 
-                <div class="card m-3" style="width: 18rem">
-                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2600/capsule_616x353.jpg?t=1604376441"
+                <div th:each="juego: ${videojuegos}" class="card m-3" style="width: 18rem">
+                    <img 
                         class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Vampire</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>                        
+                    <div class="card-body text-center">
+                        <h5 th:text="${juego.nombre}" class="card-title"></h5>
+                        <p  class="card-text ">
+                            <span th:text="${juego.plataforma}" class="badge rounded-pill text-bg-primary"></span>
+                        </p>  
+                        <p><span th:text="${juego.numero_serie}" class="badge rounded-pill text-bg-warning"></span></p>    
+                        <p><span th:text="${juego.genero}" class="badge rounded-pill text-bg-warning"></span></p>    
+                          
+                        <p th:text="${juego.ano_salida}" class="card-text ">
+                           
+                        </p>        
+                        <p th:text="${juego.descripcion}" class="card-text ">
+                           
+                        </p>            
                     </div>
-                    <div class="card-footer text-muted">
+                    <div class="card-footer text-muted text-center">
                         <a href="#" class="btn btn-primary">Ver detalles</a>
                     </div>
                 </div>
 
                 
-                <div class="card m-3" style="width: 18rem">
-                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2600/capsule_616x353.jpg?t=1604376441"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Vampire</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>                        
-                    </div>
-                    <div class="card-footer text-muted">
-                        <a href="#" class="btn btn-primary">Ver detalles</a>
-                    </div>
-                </div>
-
-                
-                <div class="card m-3" style="width: 18rem">
-                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2600/capsule_616x353.jpg?t=1604376441"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Vampire</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>                        
-                    </div>
-                    <div class="card-footer text-muted">
-                        <a href="#" class="btn btn-primary">Ver detalles</a>
-                    </div>
-                </div>
-                
-                <div class="card m-3" style="width: 18rem">
-                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2600/capsule_616x353.jpg?t=1604376441"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Vampire</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content. <br>
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>                        
-                    </div>
-                    <div class="card-footer text-muted">
-                        <a href="#" class="btn btn-primary">Ver detalles</a>
-                    </div>
-                </div>
 
            
         </div>
