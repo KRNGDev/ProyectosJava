@@ -10,16 +10,27 @@ import jakarta.persistence.ManyToOne;
 public class Videojuegos {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
+    private String imagenurl;
     private String numero_serie;
     private String plataforma;
-    private String genero;
-    private String ano_salida;
+    private Integer ano_salida;
     private String descripcion;
-    // @ManyToOne
-    // private Distribuidor distribuidor;
+    @ManyToOne
+    private Generos genero;
+
+    @ManyToOne
+    private Distribuidor distribuidor;
+
+    public Distribuidor getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(Distribuidor distribuidor) {
+        this.distribuidor = distribuidor;
+    }
 
     public String getDescripcion() {
         return descripcion;
@@ -53,19 +64,11 @@ public class Videojuegos {
         this.numero_serie = numero_serie;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getAno_salida() {
+    public Integer getAno_salida() {
         return ano_salida;
     }
 
-    public void setAno_salida(String ano_salida) {
+    public void setAno_salida(Integer ano_salida) {
         this.ano_salida = ano_salida;
     }
 
@@ -75,6 +78,30 @@ public class Videojuegos {
 
     public void setPlataforma(String plataforma) {
         this.plataforma = plataforma;
+    }
+
+    @Override
+    public String toString() {
+        return "Videojuegos [id=" + id + ", nombre=" + nombre + ", numero_serie=" + numero_serie + ", plataforma="
+                + plataforma + ", genero=" + genero.getId() + ", ano_salida=" + ano_salida + ", descripcion="
+                + descripcion
+                + ", distribuidor=" + distribuidor.getId() + ",ImagenUrl=" + imagenurl + "]";
+    }
+
+    public Generos getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Generos genero) {
+        this.genero = genero;
+    }
+
+    public String getImagenurl() {
+        return imagenurl;
+    }
+
+    public void setImagenurl(String imagenurl) {
+        this.imagenurl = imagenurl;
     }
 
     /*

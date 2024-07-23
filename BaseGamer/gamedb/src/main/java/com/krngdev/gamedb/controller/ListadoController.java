@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
 import com.krngdev.gamedb.domai.Videojuegos;
@@ -21,6 +22,27 @@ public class ListadoController {
     @RequestMapping("/")
     public String listarVideojuegos(Model model) {
         List<Videojuegos> destacados = videojuegoService.buscarDestacados();
+        model.addAttribute("videojuegos", destacados);
+        return "listado";
+    }
+
+    @RequestMapping("/fecha")
+    public String listarVideojuegosPorAno(Model model) {
+        List<Videojuegos> destacados = videojuegoService.buscarPorAno();
+        model.addAttribute("videojuegos", destacados);
+        return "listado";
+    }
+
+    @RequestMapping("/genero")
+    public String listarVideojuegosPorGenero(String genero, Model model) {
+        List<Videojuegos> destacados = videojuegoService.buscarPorGenero(genero);
+        model.addAttribute("videojuegos", destacados);
+        return "listado";
+    }
+
+    @RequestMapping("/buscar")
+    public String buscar(@RequestParam("q") String consulta, Model model) {
+        List<Videojuegos> destacados = videojuegoService.buscar(consulta);
         model.addAttribute("videojuegos", destacados);
         return "listado";
     }

@@ -9,10 +9,27 @@ import jakarta.persistence.Id;
 public class Distribuidor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
+    private String direccion;
+    private String telefono;
+    private String email;
     private String sitioWeb;
+
+    @Override
+    public String toString() {
+        return "Distribuidor [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono
+                + ", email=" + email + ", sitioWeb=" + sitioWeb + "]";
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Integer getId() {
         return id;
@@ -36,6 +53,22 @@ public class Distribuidor {
 
     public void setSitioWeb(String sitioWeb) {
         this.sitioWeb = sitioWeb;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
 }
