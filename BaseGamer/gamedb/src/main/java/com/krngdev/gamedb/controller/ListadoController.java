@@ -3,6 +3,7 @@ package com.krngdev.gamedb.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
@@ -33,8 +34,8 @@ public class ListadoController {
         return "listado";
     }
 
-    @RequestMapping("/genero")
-    public String listarVideojuegosPorGenero(String genero, Model model) {
+    @RequestMapping("/genero/{genero}")
+    public String listarVideojuegosPorGenero(@PathVariable String genero, Model model) {
         List<Videojuegos> destacados = videojuegoService.buscarPorGenero(genero);
         model.addAttribute("videojuegos", destacados);
         return "listado";

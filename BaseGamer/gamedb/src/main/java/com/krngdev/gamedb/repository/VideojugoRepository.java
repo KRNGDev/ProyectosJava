@@ -15,7 +15,7 @@ public interface VideojugoRepository extends JpaRepository<Videojuegos, Integer>
     @Query("select v from Videojuegos v order by v.ano_salida")
     List<Videojuegos> buscarPorAno();
 
-    @Query("SELECT v FROM Videojuegos v WHERE v.genero = ?1 ORDER BY v.nombre")
+    @Query("SELECT v FROM Videojuegos v WHERE v.genero.nombre = ?1 ORDER BY v.nombre")
     List<Videojuegos> buscarPorGenero(String genero);
 
     List<Videojuegos> findByNombreContaining(String nombre);
