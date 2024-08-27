@@ -54,7 +54,6 @@ public class VideojuegoAbmController {
     @PostMapping("/videojuegos/guardar")
     public String guardar(Videojuegos videojuego) {
         videojuegoService.guardar(videojuego);
-        System.out.println(videojuego);
         return "redirect:/";
     }
 
