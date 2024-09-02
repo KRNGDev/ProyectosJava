@@ -13,6 +13,8 @@ public class UserModel {
     private  String nombre;
     private  String apellido;
     private  String email;
+    private  String telefono;
+    private  String imagenurl;
 
     public long getId() {
         return id;
@@ -45,4 +47,22 @@ public class UserModel {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    public String getImagenurl() {
+        return imagenurl;
+    }
+
+    public void setImagenurl(String imagenurl) {
+        this.imagenurl = imagenurl;
+    }
+
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
 }
