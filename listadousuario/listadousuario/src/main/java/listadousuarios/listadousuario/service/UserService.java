@@ -37,6 +37,9 @@ public class UserService {
         user.setEmail(request.getEmail());
         user.setTelefono(request.getTelefono());
         user.setImagenurl(request.getImagenurl());
+        user.setDireccion(request.getDireccion());
+        user.setDisciplina(request.getDisciplina());
+
 
         return user;
     }
