@@ -5,14 +5,23 @@ import listadousuarios.listadousuario.modelo.UserModel;
 import listadousuarios.listadousuario.service.UserService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+    private final String UPLOAD_DIR = "img/";
+
     @Autowired
     private UserService userService;
 
@@ -23,9 +32,17 @@ public class UserController {
     }
 
 
-    @PostMapping
-    public UserModel saveUser(@RequestBody UserModel user){
-        return  this.userService.saveUser(user);
+    @PostMapping(consumes = {"multipart/form-data"})
+    public ResponseEntity<Map<String, String>> saveUser(
+            @RequestPart("user") UserModel userModel,
+            @RequestPart("file") MultipartFile file){
+        try {
+            // Delegar la lógica al servicio
+            Map<String, String> response = userService.saveUser(userModel, file);
+            return ResponseEntity.ok(response);
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", "Error al procesar la solicitud"));
+        }
     }
 
     @GetMapping(path = "/{id}")
@@ -39,14 +56,14 @@ public class UserController {
 
     }
     @DeleteMapping(path = "/{id}")
-    public  String deleteById(@PathVariable("id") Long id){
+    public  Map<String, String> deleteById(@PathVariable("id") Long id){
         boolean ok = this.userService.deleteUser(id);
-
+        Map<String, String> response = new HashMap<>();
         if(ok){
-            return "User con id "+ id+" eliminado";
+            response.put("message", "User con id " + id + " eliminado");
         }else {
-            return "Error en la eliminacion";
+            response.put("error", "Error en la eliminación");
         }
-
+        return response;
     }
 }
